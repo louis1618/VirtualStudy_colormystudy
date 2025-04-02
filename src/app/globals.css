@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* 모바일 최적화 스타일 */
+.study-room-container {
+  width: 100%;
+  height: calc(100vh - 200px);
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .study-room-container {
+    height: calc(100vh - 150px);
+  }
+  
+  .control-panel {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+  
+  .control-panel button {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+/* 다크 모드 지원 */
+.dark-mode {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 30;
+  --background-end-rgb: 30, 30, 50;
+}
+
+.light-mode {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+/* 접근성 개선 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* 포커스 표시 개선 */
+:focus {
+  outline: 2px solid #4299e1;
+  outline-offset: 2px;
+}
+
+/* 모바일 터치 타겟 크기 개선 */
+button, 
+.button,
+[role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@media (max-width: 768px) {
+  .grid-cols-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1rem;
+  }
+}
+
+/* 로딩 상태 표시 */
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #4299e1;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 반응형 폰트 크기 */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+/* 컨트롤 패널 스타일 개선 */
+.control-panel {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark .control-panel {
+  background-color: rgba(30, 30, 30, 0.8);
+}
