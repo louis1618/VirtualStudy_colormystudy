@@ -2,13 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -24,6 +18,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  font-family: 'Nanum Square Round', sans-serif;
 }
 
 /* 모바일 최적화 스타일 */
@@ -37,29 +32,16 @@ body {
   .study-room-container {
     height: calc(100vh - 150px);
   }
-  
+
   .control-panel {
     flex-direction: column;
     padding: 0.5rem;
   }
-  
+
   .control-panel button {
     font-size: 0.8rem;
     padding: 0.3rem 0.6rem;
   }
-}
-
-/* 다크 모드 지원 */
-.dark-mode {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 10, 10, 30;
-  --background-end-rgb: 30, 30, 50;
-}
-
-.light-mode {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
 }
 
 /* 접근성 개선 */
@@ -82,7 +64,7 @@ body {
 }
 
 /* 모바일 터치 타겟 크기 개선 */
-button, 
+button,
 .button,
 [role="button"] {
   min-height: 44px;
@@ -93,7 +75,7 @@ button,
   .grid-cols-1 {
     grid-template-columns: 1fr;
   }
-  
+
   .space-y-6 > * + * {
     margin-top: 1rem;
   }
@@ -118,6 +100,16 @@ button,
   }
 }
 
+/* 음악 플레이어 애니메이션 */
+@keyframes soundBounce {
+  0%, 100% {
+    height: 2px;
+  }
+  50% {
+    height: 12px;
+  }
+}
+
 /* 반응형 폰트 크기 */
 html {
   font-size: 16px;
@@ -133,17 +125,4 @@ html {
   html {
     font-size: 12px;
   }
-}
-
-/* 컨트롤 패널 스타일 개선 */
-.control-panel {
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.dark .control-panel {
-  background-color: rgba(30, 30, 30, 0.8);
 }
