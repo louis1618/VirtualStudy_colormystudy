@@ -4,16 +4,16 @@ import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useTheme } from 'next-themes';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import TodoList from '@/components/todo/TodoList';
-import CottageTimer from '@/components/cottage/CottageTimer';
-import CottageControls from '@/components/cottage/CottageControls';
-import PetSelection from '@/components/cottage/PetSelection';
-import WelcomeModal from '@/components/cottage/WelcomeModal';
+import TodoList from '@/components/studytimer-ver1/TodoList';
+import CottageTimer from '@/components/studytimer-ver1/CottageTimer';
+import CottageControls from '@/components/studytimer-ver1/CottageControls';
+import PetSelection from '@/components/studytimer-ver1/PetSelection';
+import WelcomeModal from '@/components/studytimer-ver2/WelcomeModal';
 import { IoMdSettings } from 'react-icons/io';
-import MusicPlayer from '@/components/music/MusicPlayer';
+import MusicPlayer from '@/components/studytimer-ver1/MusicPlayer';
 import { FaTimes } from 'react-icons/fa';
 
-const StudyRoom = dynamic(() => import('@/components/3d/StudyRoom'), {
+const StudyRoom = dynamic(() => import('@/components/studytimer-ver1/StudyRoom'), {
   ssr: false,
   loading: () => (
     <div className="w-full h-screen bg-gray-900 flex items-center justify-center">

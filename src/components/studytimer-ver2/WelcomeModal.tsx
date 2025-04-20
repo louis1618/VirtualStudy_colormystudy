@@ -209,7 +209,7 @@ export default function WelcomeModal({
                 onChange={(e) => setMinutes(Number(e.target.value))}
                 className="w-full appearance-none px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500 transition-all pr-10"
               >
-                {[1, 15, 25, 30, 45, 60, 90, 120, 150, 180].map((min) => (
+                {[15, 25, 30, 45, 60, 90, 120, 150, 180].map((min) => (
                   <option key={min} value={min}>
                     {min}분
                   </option>

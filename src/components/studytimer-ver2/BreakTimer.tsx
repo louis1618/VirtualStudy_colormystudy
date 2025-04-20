@@ -22,6 +22,10 @@ export default function BreakTimer({
   );
   
   const prevRemainingSecondsRef = useRef(remainingSeconds);
+
+  useEffect(() => {
+    setRemainingSeconds(breakMinutes * 60);
+  }, [breakMinutes]);
   
   useEffect(() => {
     if (!isActive) {

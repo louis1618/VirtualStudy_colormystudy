@@ -16,8 +16,26 @@ export default function StudyTimer({ startTime, durationMinutes, focusTask, isVi
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    const totalDurationMs = durationMinutes * 60 * 1000;
+    const initialRemainingHours = Math.floor(durationMinutes / 60);
+    const initialRemainingMinutes = durationMinutes % 60;
+    
+    const formattedInitialRemaining = [
+      initialRemainingHours.toString().padStart(2, '0'),
+      initialRemainingMinutes.toString().padStart(2, '0'),
+      '00'
+    ].join(':');
+    
+    setRemaining(formattedInitialRemaining);
+    setElapsed('00:00:00');
+    setProgress(0);
+    setIsTimeUp(false);
+  }, [durationMinutes]);
+
+  useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date();
+      const totalDurationMs = durationMinutes * 60 * 1000;
 
       // 경과 시간 계산
       const elapsedMs = now.getTime() - startTime.getTime();
@@ -34,7 +52,6 @@ export default function StudyTimer({ startTime, durationMinutes, focusTask, isVi
       setElapsed(formattedElapsed);
 
       // 남은 시간 계산
-      const totalDurationMs = durationMinutes * 60 * 1000;
       const endTime = new Date(startTime.getTime() + totalDurationMs);
       const remainingMs = endTime.getTime() - now.getTime();
 
